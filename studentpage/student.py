@@ -11,7 +11,7 @@ class Student:
 
         
         #first image
-        img=Image.open(r"C:\Users\Rashmi Papnoi\Desktop\TY\studentpage\images\student1.jpg")
+        img=Image.open(r"imageskafile/student1.jpg")
         img=img.resize((400,180),Image.ANTIALIAS)
         self.photoimage=ImageTk.PhotoImage(img)
         
@@ -19,7 +19,7 @@ class Student:
         f_lbl.place(x=0,y=0,width=400,height=180)
 
         #second image
-        img1=Image.open(r"C:\Users\Rashmi Papnoi\Desktop\TY\studentpage\images\registerbg.jpg")
+        img1=Image.open(r"imageskafile/registerbg.jpg")
         img1=img1.resize((400,180),Image.ANTIALIAS)
         self.photoimage1=ImageTk.PhotoImage(img1)
 
@@ -28,7 +28,7 @@ class Student:
         
 
         #third image
-        img2=Image.open(r"C:\Users\Rashmi Papnoi\Desktop\TY\studentpage\images\student2.jpg")
+        img2=Image.open(r"imageskafile/student2.jpg")
         img2=img2.resize((400,180),Image.ANTIALIAS)
         self.photoimage2=ImageTk.PhotoImage(img2)
 
@@ -37,7 +37,7 @@ class Student:
         
 
         #bg image
-        img3=Image.open(r"C:\Users\Rashmi Papnoi\Desktop\TY\studentpage\images\studentbg.jpg")
+        img3=Image.open(r"imageskafile/studentbg.jpg")
         img3=img3.resize((1530,710),Image.ANTIALIAS)
         self.photoimage3=ImageTk.PhotoImage(img3)
 
@@ -213,7 +213,7 @@ class Student:
         right_frame=LabelFrame(main_frame,bd=2,bg="white",relief=RIDGE,text="Student Details",font=("times new roman",12,"bold"))
         right_frame.place(x=750,y=10,width=730,height=580)
 
-        img_right=Image.open(r"C:\Users\Rashmi Papnoi\Desktop\TY\studentpage\images\right.jpg")
+        img_right=Image.open(r"imageskafile/right.jpg")
         img_right=img_right.resize((720,180),Image.ANTIALIAS)
         self.photoimage_right=ImageTk.PhotoImage(img_right)
 
