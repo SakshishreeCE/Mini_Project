@@ -12,7 +12,7 @@ class Student:
         
         #first image
         img=Image.open(r"imageskafile/student1.jpg")
-        img=img.resize((400,180),Image.ANTIALIAS)
+        img=img.resize((400,180),resample=Image.BILINEAR)
         self.photoimage=ImageTk.PhotoImage(img)
         
         f_lbl=Label(image=self.photoimage,borderwidth=0)
@@ -20,7 +20,7 @@ class Student:
 
         #second image
         img1=Image.open(r"imageskafile/registerbg.jpg")
-        img1=img1.resize((400,180),Image.ANTIALIAS)
+        img1=img1.resize((400,180),resample=Image.BILINEAR)
         self.photoimage1=ImageTk.PhotoImage(img1)
 
         f_lbl=Label(image=self.photoimage1,borderwidth=0)
@@ -29,7 +29,7 @@ class Student:
 
         #third image
         img2=Image.open(r"imageskafile/student2.jpg")
-        img2=img2.resize((400,180),Image.ANTIALIAS)
+        img2=img2.resize((400,180),resample=Image.BILINEAR)
         self.photoimage2=ImageTk.PhotoImage(img2)
 
         f_lbl=Label(image=self.photoimage2,borderwidth=0)
@@ -38,7 +38,7 @@ class Student:
 
         #bg image
         img3=Image.open(r"imageskafile/studentbg.jpg")
-        img3=img3.resize((1530,710),Image.ANTIALIAS)
+        img3=img3.resize((1530,710),resample=Image.BILINEAR)
         self.photoimage3=ImageTk.PhotoImage(img3)
 
         bg_img=Label(self.root,image=self.photoimage3)
@@ -214,7 +214,7 @@ class Student:
         right_frame.place(x=750,y=10,width=730,height=580)
 
         img_right=Image.open(r"imageskafile/right.jpg")
-        img_right=img_right.resize((720,180),Image.ANTIALIAS)
+        img_right=img_right.resize((720,180),resample=Image.BILINEAR)
         self.photoimage_right=ImageTk.PhotoImage(img_right)
 
         f_lbl=Label(right_frame,image=self.photoimage_right)
