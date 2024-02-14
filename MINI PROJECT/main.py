@@ -10,7 +10,7 @@ class Face_Recognisation_System:
         self.root.title("FACE RECOGNISATION SYSTEM")
 
         #first image
-        img = Image.open(r"C:\Users\akhil\OneDrive\Documents\MINI PROJECT\college_images\7new.JPG")
+        img = Image.open(r"imageskafile/7new.JPG")
         img = img.resize((500,130),resample=Image.BILINEAR)
         self.photoimg = ImageTk.PhotoImage(img)
 
@@ -18,7 +18,7 @@ class Face_Recognisation_System:
         first_label.place(x=0,y=0,width=500,height=130)
 
         #second image
-        img2 = Image.open(r"C:\Users\akhil\OneDrive\Documents\MINI PROJECT\college_images\7new.JPG")
+        img2 = Image.open(r"imageskafile/7new.JPG")
         img2 = img2.resize((500,130),resample=Image.BILINEAR)
         self.photoimg2 = ImageTk.PhotoImage(img2)
 
@@ -26,7 +26,7 @@ class Face_Recognisation_System:
         first_label.place(x=500,y=0,width=500,height=130)
 
         #third image
-        img3 = Image.open(r"C:\Users\akhil\OneDrive\Documents\MINI PROJECT\college_images\7new.JPG")
+        img3 = Image.open(r"imageskafile/7new.JPG")
         img3 = img3.resize((550,130),resample=Image.BILINEAR)
         self.photoimg3 = ImageTk.PhotoImage(img3)
 
@@ -34,7 +34,7 @@ class Face_Recognisation_System:
         first_label.place(x=1000,y=0,width=550,height=130)
 
         #bg image
-        img4 = Image.open(r"C:\Users\akhil\OneDrive\Documents\MINI PROJECT\college_images\bg.JPG")
+        img4 = Image.open(r"imageskafile/bg.JPG")
         img4 = img4.resize((1530,710),resample=Image.BILINEAR)
         self.photoimg4 = ImageTk.PhotoImage(img4)
 
