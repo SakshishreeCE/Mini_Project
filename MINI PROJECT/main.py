@@ -1,6 +1,7 @@
 from tkinter import*
 from tkinter import ttk
 from PIL import Image,ImageTk
+from student import Student
 
 
 class Face_Recognisation_System:
@@ -45,7 +46,7 @@ class Face_Recognisation_System:
         title_lbl.place(x=0,y=0,width=1530,height=45)
 
         #student detail button
-        b1 = Button(bg_img,text="STUDENT \n DETAILS",cursor="hand2",font=("times new roman",20,"bold"),bg="light blue",fg="black")
+        b1 = Button(bg_img,text="STUDENT \n DETAILS",command=self.student_details,cursor="hand2",font=("times new roman",20,"bold"),bg="light blue",fg="black")
         b1.place(x=50,y=400,width=150,height=150)
 
         #face detector button
@@ -72,7 +73,10 @@ class Face_Recognisation_System:
         b1 = Button(bg_img,text="EXIT",cursor="hand2",font=("times new roman",20,"bold"),bg="light blue",fg="black")
         b1.place(x=1250,y=400,width=150,height=150)
 
-
+# ============================================Functions buttons=======================
+def student_details(self):
+    self.new_window=Toplevel(self.root)
+    self.app=Student(self.new_window)
 
 
 
