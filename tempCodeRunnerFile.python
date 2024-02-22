@@ -1,0 +1,8 @@
+import sys
+
+# Append the directory to the Python path
+directory_to_append = "C:\Users\HI\new mini project\Mini_Project\MINI PROJECT\main.py"
+sys.path.append(directory_to_append)
+
+# Now you can import modules from the directory
+import student
