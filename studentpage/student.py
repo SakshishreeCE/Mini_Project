@@ -126,7 +126,7 @@ class Student:
         studentId_label=Label(class_student,text="StudentID",font=("times new roman",13,"bold"),bg="white")
         studentId_label.grid(row=0,column=0,padx=10,pady=5,sticky=W)
 
-        studentId_entry=ttk.Entry(class_student,textvariable=self.var_std_id,width=20,font=("times new roman",13,"bold"))
+        studentId_entry=ttk.Entry(class_student,textvariable=self.var_std_id,width=22,font=("times new roman",13,"bold"))
         studentId_entry.grid(row=0,column=1,padx=10,pady=5,sticky=W)
 
         #student name
@@ -144,7 +144,7 @@ class Student:
         #class_div_entry.grid(row=1,column=1,padx=10,pady=5,sticky=W)
 
         div_combo=ttk.Combobox(class_student,textvariable=self.var_div,font=("times new roman",13,"bold"),state="readonly",width=20)
-        div_combo["values"]=("A","B","C","D","E")
+        div_combo["values"]=("None","A","B","C")
         div_combo.current(0)
         div_combo.grid(row=1 ,column=1,padx=10,pady=5,sticky=W)
         #Roll no
@@ -161,9 +161,9 @@ class Student:
        # gender_entry=ttk.Entry(class_student,textvariable=self.var_gender,width=20,font=("times new roman",13,"bold"))
         #gender_entry.grid(row=2,column=1,padx=10,pady=5,sticky=W)
         gender_combo=ttk.Combobox(class_student,textvariable=self.var_gender,font=("times new roman",13,"bold"),state="readonly",width=20)
-        gender_combo["values"]=("Male","Female","Other")
+        gender_combo["values"]=("Female")
         gender_combo.current(0)
-        gender_combo.grid(row=2,column=1,padx=2,pady=5,sticky=W)
+        gender_combo.grid(row=2,column=1,padx=10,pady=5,sticky=W)
         #dob
         dob_label=Label(class_student,text="DOB",font=("times new roman",13,"bold"),bg="white")
         dob_label.grid(row=2,column=2,padx=10,pady=5,sticky=W)
@@ -175,7 +175,7 @@ class Student:
         email_label=Label(class_student,text="Email",font=("times new roman",13,"bold"),bg="white")
         email_label.grid(row=3,column=0,padx=10,pady=5,sticky=W)
 
-        email_entry=ttk.Entry(class_student,textvariable=self.var_email,width=20,font=("times new roman",13,"bold"))
+        email_entry=ttk.Entry(class_student,textvariable=self.var_email,width=22,font=("times new roman",13,"bold"))
         email_entry.grid(row=3,column=1,padx=10,pady=5,sticky=W)
 
         #phone
@@ -189,7 +189,7 @@ class Student:
         address_label=Label(class_student,text="Address",font=("times new roman",13,"bold"),bg="white")
         address_label.grid(row=4,column=0,padx=10,pady=5,sticky=W)
 
-        address_entry=ttk.Entry(class_student,textvariable=self.var_address,width=20,font=("times new roman",13,"bold"))
+        address_entry=ttk.Entry(class_student,textvariable=self.var_address,width=22,font=("times new roman",13,"bold"))
         address_entry.grid(row=4,column=1,padx=10,pady=5,sticky=W)
 
         #Teacher name
@@ -324,21 +324,22 @@ class Student:
             try:
                 conn=mysql.connector.connect(host="localhost",username="root",password="Sakshi@018",database="student_attendence")     
                 my_cursor=conn.cursor()
-                my_cursor.execute("insert into student values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)",(
-                                                                                                            self.var_dep.get(),
+                my_cursor.execute("insert into student_data values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)",(
+                                                                                                            self.var_std_id.get(),
                                                                                                             self.var_cousre.get(),
                                                                                                             self.var_year.get(),
                                                                                                             self.var_semester.get(),
-                                                                                                            self.var_std_id.get(),
-                                                                                                            self.var_std_name.get(),
+                                                                                                            self.var_dep.get(),
                                                                                                             self.var_div.get(),
                                                                                                             self.var_roll.get(),
                                                                                                             self.var_gender.get(),
                                                                                                             self.var_dob.get(),
                                                                                                             self.var_email.get(),
-                                                                                                            self.var_phone.get(),
                                                                                                             self.var_address.get(),
-                                                                                                            self.var_radio1.get()
+                                                                                                            self.var_phone.get(),
+                                                                                                            self.var_teacher.get(),
+                                                                                                            self.var_radio1.get(),
+                                                                                                            self.var_std_name.get()
                                                                                                             ))
                 conn.commit()
                 self.fetch_data()
@@ -366,7 +367,7 @@ class Student:
         data=content["values"]
 
         self.var_dep.set(data[0]),
-        self.var_course.set(data[1]),
+        self.var_cousre.set(data[1]),
         self.var_year.set(data[2]),   
         self.var_semester.set(data[3]),
         self.var_std_id.set(data[4]),
@@ -404,7 +405,6 @@ class Student:
                                                                                                                                                                          self.var_email.get(),
                                                                                                                                                                          self.var_phone.get(),
                                                                                                                                                                          self.var_address.get(),
-                                                                                                                                                                         self.var_teacher.get(),
                                                                                                                                                                          self.var_teacher.get(),
                                                                                                                                                                          self.var_radio1.get(),
                                                                                                                                                                          self.var_std_id.get()
