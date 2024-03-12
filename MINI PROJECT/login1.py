@@ -20,7 +20,7 @@ class Login_Window:
         self.root.title("Login")
         self.root.geometry("1600x900+0+0")
 
-        self.bg=ImageTk.PhotoImage(file=r"C:\Users\Rashmi Papnoi\Desktop\TY\project1\studentbg.jpg")
+        self.bg=ImageTk.PhotoImage(file=r"imageskafile/studentbg.jpg")
         
         lbl_bg=Label(self.root,image=self.bg)
         lbl_bg.place(x=0,y=0,relwidth=1,relheight=1)
@@ -28,7 +28,7 @@ class Login_Window:
         frame=Frame(self.root,bg="black")
         frame.place(x=610,y=170,width=340,height=450)
 
-        img1=Image.open(r"C:\Users\Rashmi Papnoi\Desktop\TY\project1\login.jpg")
+        img1=Image.open(r"imageskafile/login.jpg")
         img1=img1.resize((100,100),Image.ANTIALIAS)
         self.photoimage1=ImageTk.PhotoImage(img1)
         lbling1=Label(image=self.photoimage1,borderwidth=0)
@@ -51,13 +51,13 @@ class Login_Window:
         self.txtpass.place(x=40,y=250,width=270)
 
         #Icon Images
-        img2=Image.open(r"C:\Users\Rashmi Papnoi\Desktop\TY\project1\login.jpg")
+        img2=Image.open(r"imageskafile/login.jpg")
         img2=img2.resize((25,25),Image.ANTIALIAS)
         self.photoimage2=ImageTk.PhotoImage(img2)
         lbling1=Label(image=self.photoimage2,bg="black",borderwidth=0)
         lbling1.place(x=650,y=323,width=25,height=25)
 
-        img3=Image.open(r"C:\Users\Rashmi Papnoi\Desktop\TY\project1\pw.jpg")
+        img3=Image.open(r"imageskafile/pw.jpg")
         img3=img3.resize((25,25),Image.ANTIALIAS)
         self.photoimage3=ImageTk.PhotoImage(img3)
         lbling1=Label(image=self.photoimage3,bg="black",borderwidth=0)
