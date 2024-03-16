@@ -115,7 +115,7 @@ class Login_Window:
         elif self.txt_security.get()=="":
             messagebox.showerror("Error","Please enter the answer",parent=self.root2)
         elif self.txt_newpassword.get()=="":
-            messagebox.showerror("Error","Please enetr the new password",parent=self.root2)
+            messagebox.showerror("Error","Please enter the new password",parent=self.root2)
         else:
             conn=mysql.connector.connect(host="localhost",user="rashmi",password="123456",database="login")
             my_cursor=conn.cursor()
