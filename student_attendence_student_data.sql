@@ -50,7 +50,7 @@ LOCK TABLES `student_data` WRITE;
 /*!40000 ALTER TABLE `student_data` DISABLE KEYS */;
 INSERT INTO `student_data` VALUES (11,'NNDL','2020-24','Semester 6','IT','C','52','Female','09-02-2002','sakshi@gmail.com','mumbai','7260012652','sample','No','sakshi');
 /*!40000 ALTER TABLE `student_data` ENABLE KEYS */;
-UNLOCK TABLES;
+LOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;

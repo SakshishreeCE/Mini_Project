@@ -29,7 +29,8 @@ class Login_Window:
         frame.place(x=610,y=170,width=340,height=450)
 
         img1=Image.open(r"imageskafile/login.jpg")
-        img1=img1.resize((100,100),Image.ANTIALIAS)
+        img1 = img1.resize((100,100),resample=Image.BILINEAR)
+        
         self.photoimage1=ImageTk.PhotoImage(img1)
         lbling1=Label(image=self.photoimage1,borderwidth=0)
         lbling1.place(x=730,y=175,width=100,height=100)
@@ -52,13 +53,13 @@ class Login_Window:
 
         #Icon Images
         img2=Image.open(r"imageskafile/login.jpg")
-        img2=img2.resize((25,25),Image.ANTIALIAS)
+        img2 = img2.resize((25,25),resample=Image.BILINEAR)
         self.photoimage2=ImageTk.PhotoImage(img2)
         lbling1=Label(image=self.photoimage2,bg="black",borderwidth=0)
         lbling1.place(x=650,y=323,width=25,height=25)
 
         img3=Image.open(r"imageskafile/pw.jpg")
-        img3=img3.resize((25,25),Image.ANTIALIAS)
+        img3 = img3.resize((25,25),resample=Image.BILINEAR)
         self.photoimage3=ImageTk.PhotoImage(img3)
         lbling1=Label(image=self.photoimage3,bg="black",borderwidth=0)
         lbling1.place(x=650,y=395,width=25,height=25)
