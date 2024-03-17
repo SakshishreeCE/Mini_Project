@@ -2,6 +2,7 @@ from tkinter import*
 from tkinter import ttk
 from PIL import Image,ImageTk
 from student import Student
+import os
 
 
 class Face_Recognisation_System:
@@ -18,7 +19,7 @@ class Face_Recognisation_System:
         first_label = Label(self.root,image=self.photoimg)
         first_label.place(x=0,y=0,width=500,height=130)
 
-        #second image
+        #second images
         img2 = Image.open(r"imageskafile/7new.JPG")
         img2 = img2.resize((500,130),resample=Image.BILINEAR)
         self.photoimg2 = ImageTk.PhotoImage(img2)
@@ -62,7 +63,7 @@ class Face_Recognisation_System:
         b1.place(x=650,y=400,width=150,height=150)
 
         #photos button
-        b1 = Button(bg_img,text="PHOTOS",cursor="hand2",font=("times new roman",20,"bold"),bg="light blue",fg="black")
+        b1 = Button(bg_img,text="PHOTOS",cursor="hand2",command=self.open_img,font=("times new roman",20,"bold"),bg="light blue",fg="black")
         b1.place(x=850,y=400,width=150,height=150)
 
         #developer button
@@ -72,6 +73,9 @@ class Face_Recognisation_System:
         #exit button
         b1 = Button(bg_img,text="EXIT",cursor="hand2",font=("times new roman",20,"bold"),bg="light blue",fg="black")
         b1.place(x=1250,y=400,width=150,height=150)
+
+    def open_img(self):
+        os.startfile("data")
 
 # ============================================Functions buttons=======================
     def student_details(self):

@@ -3,6 +3,7 @@ from tkinter import ttk, Canvas
 from PIL import Image,ImageTk  #pip install pillow
 from tkinter import messagebox
 import mysql.connector
+import cv2
 
 
 class Student:
@@ -230,7 +231,7 @@ class Student:
         btn_frame1.place(x=0,y=235,width=715,height=35)
 
         Take_btn=Button(btn_frame1,command=self.generate_dataset,text="Take Photo Sample",width=34,font=("times new roman",13,"bold"),bg="white",fg="black")
-        Take_btn.grid(row=0,column=0)
+        Take_btn.grid(row=0,column=0) 
 
         updatephoto_btn=Button(btn_frame1,text="Update Photo Sample",width=34,font=("times new roman",13,"bold"),bg="white",fg="black")
         updatephoto_btn.grid(row=0,column=1)
@@ -323,7 +324,7 @@ class Student:
             messagebox.showerror("Error","All feilds are required",parent=self.root)
         else:
             try:
-                conn=mysql.connector.connect(host="localhost",username="root",password="Sakshi@018",database="student_attendence")     
+                conn=mysql.connector.connect(host="localhost",username="root",password="Ram1234*",database="face_recognizer")     
                 my_cursor=conn.cursor()
                 my_cursor.execute("insert into student_data values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)",(
                                                                                                             self.var_std_id.get(),
@@ -350,7 +351,7 @@ class Student:
                 messagebox.showerror("Error",f"Due To:{str(es)}",parent=self.root)
     #================== fetch data========================
     def fetch_data(self):
-        conn=mysql.connector.connect(host="localhost",username="root",password="Sakshi@018",database="student_attendence")     
+        conn=mysql.connector.connect(host="localhost",username="root",password="Ram1234*",database="face_recognizer")     
         my_cursor=conn.cursor()
         my_cursor.execute("select * from student_data")
         data=my_cursor.fetchall()
@@ -391,7 +392,7 @@ class Student:
             try:
                 upadate=messagebox.askyesno("update","Do you want to update this student details",parent=self.root)
                 if upadate>0:
-                    conn=mysql.connector.connect(host="localhost",username="root",password="Sakshi@018",database="student_attendence")     
+                    conn=mysql.connector.connect(host="localhost",username="root",password="Ram1234*",database="face_recognizer")     
                     my_cursor=conn.cursor()
                     my_cursor.execute("update student_data set cousre=%s,Year=%s,Semester=%s,Dept=%s,Division=%s,Roll=%s,Gender=%s,Dob=%s,Email=%s,Address=%s,Phone=%s,Teacher=%s,PhotoSample=%s,Name=%s where Student_id=%s",(
                                                                                                                                                                          self.var_cousre.get(),
@@ -430,7 +431,7 @@ class Student:
             try:
                 delete=messagebox.askyesno("Student Delete Page","Do you want to delete this stdudent detail",parent=self.root)
                 if delete>0:
-                     conn=mysql.connector.connect(host="localhost",username="root",password="Sakshi@018",database="student_attendence")     
+                     conn=mysql.connector.connect(host="localhost",username="root",password="Ram1234*",database="face_recognizer")     
                      my_cursor=conn.cursor() 
                      sql="delete from student_data where Student_id=%s"
                      val=(self.var_std_id.get(),)
@@ -469,7 +470,7 @@ class Student:
             messagebox.showerror("Error","All feilds are required",parent=self.root)
          else:
             try:    
-                conn=mysql.connector.connect(host="localhost",username="root",password="Sakshi@018",database="student_attendence")     
+                conn=mysql.connector.connect(host="localhost",username="root",password="Ram1234*",database="face_recognizer")     
                 my_cursor=conn.cursor() 
                 my_cursor.execute("select * from student_data")
                 myresult=my_cursor.fetchall()
@@ -498,8 +499,8 @@ class Student:
                 self.reset_data()
                 conn.close()
 
-                # ========================= load predefined data on face frontals from open cv========== 
-              #  face_classifier=cv2.CascadeClassifier("haarcascade_frontalface_default")
+                # ========================= load predefined data on face frontals from opencv========== 
+                face_classifier=cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
 
                 def face_cropped(img): 
                     gray=cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)

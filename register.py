@@ -29,7 +29,7 @@ class Register:
 
         # Resize the image to cover the whole screen
         bg_image = Image.open(r"imageskafile/registerbg.jpg")
-        resized_bg_image = bg_image.resize((screen_width, screen_height), Image.ANTIALIAS)
+        resized_bg_image = bg_image.resize((screen_width, screen_height), Image.BILINEAR)
         self.bg = ImageTk.PhotoImage(resized_bg_image)
         bg_lbl=Label(self.root,image=self.bg)
         bg_lbl.place(x=0,y=0,relwidth=1,relheight=1)
@@ -109,13 +109,13 @@ class Register:
 
         #-----------------buttons------------
         img=Image.open(r"imageskafile/registration-button.jpg" )
-        img=img.resize((200,55),Image.ANTIALIAS)
+        img=img.resize((200,55),Image.BILINEAR)
         self.photoimage=ImageTk.PhotoImage(img)
         b1=Button(frame,image=self.photoimage,command=self.register_data,borderwidth=0,cursor="hand2",font=("times new roman",18,"bold"),fg="white")
         b1.place(x=10,y=420,width=300)
 
         img1=Image.open(r"imageskafile/loginnow.jpg" )
-        img1=img1.resize((200,45),Image.ANTIALIAS)
+        img1=img1.resize((200,45),Image.BILINEAR)
         self.photoimage1=ImageTk.PhotoImage(img1)
         b1=Button(frame,image=self.photoimage1,command=self.return_login,borderwidth=0,cursor="hand2",font=("times new roman",18,"bold"),fg="white")
         b1.place(x=330,y=420,width=300)
@@ -131,7 +131,7 @@ class Register:
         elif self.var_check.get()==0:
             messagebox.showerror("Error","Please agree with the terms and conditions.")
         else:
-            conn=mysql.connector.connect(host="localhost",user="rashmi",password="123456",database="login")
+            conn=mysql.connector.connect(host="localhost",user="root",password="Ram1234*",database="login")
             my_cursor=conn.cursor()
             query=("select * from register where email=%s")
             value=(self.var_email.get(),)

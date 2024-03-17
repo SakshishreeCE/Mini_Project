@@ -86,7 +86,7 @@ class Login_Window:
         elif self.txtuser.get()=="rashmi" and self.txtpass.get()=="rash":
             messagebox.showinfo("Success","Welcome!")
         else:
-            conn=mysql.connector.connect(host="localhost",user="rashmi",password="123456",database="login")
+            conn=mysql.connector.connect(host="localhost",user="user",password="Ram1234*",database="login")
             my_cursor=conn.cursor()
             my_cursor.execute("select * from register where email=%s and password=%s",(
                                                                                         self.txtuser.get(),
@@ -100,7 +100,7 @@ class Login_Window:
                 if open_main:
                     self.new_window=Toplevel(self.root)
                     self.app=Face_Recognisation_System(self.new_window)
-                    #self.new_window.mainloop()
+                    self.new_window.mainloop()
                 else:
                     if not open_main:
                         return
@@ -117,7 +117,7 @@ class Login_Window:
         elif self.txt_newpassword.get()=="":
             messagebox.showerror("Error","Please enter the new password",parent=self.root2)
         else:
-            conn=mysql.connector.connect(host="localhost",user="rashmi",password="123456",database="login")
+            conn=mysql.connector.connect(host="localhost",user="root",password="Ram1234*",database="login")
             my_cursor=conn.cursor()
             query=("select * from register where email=%s and securityQ=%s and securityA=%s")
             value=(self.txtuser.get(),self.combo_security_Q.get(),self.txt_security.get())
@@ -141,7 +141,7 @@ class Login_Window:
         if self.txtuser.get()=="":
             messagebox.showerror("Error","Please enter your email address to reset password")
         else:
-            conn=mysql.connector.connect(host="localhost",user="rashmi",password="123456",database="login")
+            conn=mysql.connector.connect(host="localhost",user="root",password="Ram1234*",database="login")
             my_cursor=conn.cursor()
             query=("select * from register where email=%s")
             value=(self.txtuser.get(),)
