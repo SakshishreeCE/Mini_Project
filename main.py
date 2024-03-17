@@ -3,6 +3,7 @@ from tkinter import ttk
 from PIL import Image,ImageTk
 from student import Student
 import os
+from train import Train
 
 
 class Face_Recognisation_System:
@@ -59,7 +60,7 @@ class Face_Recognisation_System:
         b1.place(x=450,y=400,width=150,height=150)
 
         #train face button
-        b1 = Button(bg_img,text="TRAIN \n FACE",cursor="hand2",font=("times new roman",20,"bold"),bg="light blue",fg="black")
+        b1 = Button(bg_img,text="TRAIN \n FACE",cursor="hand2",command=self.train_data,font=("times new roman",20,"bold"),bg="light blue",fg="black")
         b1.place(x=650,y=400,width=150,height=150)
 
         #photos button
@@ -67,7 +68,7 @@ class Face_Recognisation_System:
         b1.place(x=850,y=400,width=150,height=150)
 
         #developer button
-        b1 = Button(bg_img,text="STUDENT \n DETAILS",cursor="hand2",font=("times new roman",20,"bold"),bg="light blue",fg="black")
+        b1 = Button(bg_img,text="DEVE\nLOPER",cursor="hand2",font=("times new roman",20,"bold"),bg="light blue",fg="black")
         b1.place(x=1050,y=400,width=150,height=150)
 
         #exit button
@@ -81,6 +82,10 @@ class Face_Recognisation_System:
     def student_details(self):
       self.new_window=Toplevel(self.root)
       self.app=Student(self.new_window)
+
+    def train_data(self):
+      self.new_window=Toplevel(self.root)
+      self.app=Train(self.new_window)
 
 
 
