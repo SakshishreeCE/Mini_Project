@@ -28,7 +28,7 @@ class Student:
         self.var_phone=StringVar()
         self.var_address=StringVar()
         self.var_teacher=StringVar()
-
+        '''
         #first image
         img=Image.open(r"imageskafile/student1.jpg")
         img=img.resize((400,180),resample=Image.BILINEAR)
@@ -53,7 +53,7 @@ class Student:
 
         f_lbl=Label(image=self.photoimage2,borderwidth=0)
         f_lbl.place(x=1000,y=0,width=400,height=180)
-        
+        '''
 
         #bg image
         img3=Image.open(r"imageskafile/studentbg.jpg")
@@ -61,13 +61,13 @@ class Student:
         self.photoimage3=ImageTk.PhotoImage(img3)
 
         bg_img=Label(self.root,image=self.photoimage3)
-        bg_img.place(x=0,y=180,width=1530,height=710)
+        bg_img.place(x=0,y=0,width=1530,height=830)
 
         title_lbl=Label(bg_img,text="STUDENT MANAGEMENT SYSTEM",font=("times new roman",35,"bold"),fg="white",bg="black")
         title_lbl.place(x=0,y=0,width=1530,height=45)
 
         main_frame=Frame(bg_img,bd=2,bg="white")
-        main_frame.place(x=15,y=45,width=1500,height=650)
+        main_frame.place(x=15,y=80,width=1500,height=700)
 
         #left label frame
         Left_frame=LabelFrame(main_frame,bd=2,bg="white",relief=RIDGE,text="Student Details",font=("times new roman",12,"bold"))
@@ -481,7 +481,7 @@ class Student:
                                                                                                                                                                          self.var_cousre.get(),
                                                                                                                                                                          self.var_year.get(),
                                                                                                                                                                          self.var_semester.get(),
-                                                                                                                                                                         self.var_dep.get(),
+                                                                                                                                                                         self.var_dept.get(),
                                                                                                                                                                          self.var_div.get(),
                                                                                                                                                                          self.var_roll.get(),
                                                                                                                                                                          self.var_gender.get(),

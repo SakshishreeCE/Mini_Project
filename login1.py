@@ -83,8 +83,16 @@ class Login_Window:
     def login(self):
         if self.txtuser.get()=="" or self.txtpass.get()=="":
             messagebox.showerror("Error","all fields required")
-        elif self.txtuser.get()=="rashmi" and self.txtpass.get()=="rash":
-            messagebox.showinfo("Success","Welcome!")
+        elif self.txtuser.get()=="ap01112003@gmail.com" and self.txtpass.get()=="123456":
+            #messagebox.showinfo("Success","Welcome!")
+                open_main=messagebox.askyesno("Yes/No","Access only admin")
+                if open_main:
+                    self.new_window=Toplevel(self.root)
+                    self.app=Face_Recognisation_System(self.new_window)
+                    self.new_window.mainloop()
+                else:
+                    if not open_main:
+                        return
         else:
             conn=mysql.connector.connect(host="localhost",user="user",password="Ram1234*",database="login")
             my_cursor=conn.cursor()
