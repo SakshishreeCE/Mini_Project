@@ -94,7 +94,7 @@ class Login_Window:
                     if not open_main:
                         return
         else:
-            conn=mysql.connector.connect(host="localhost",user="user",password="Ram1234*",database="login")
+            conn=mysql.connector.connect(host="localhost",user="root",password="Ram1234*",database="login")
             my_cursor=conn.cursor()
             my_cursor.execute("select * from register where email=%s and password=%s",(
                                                                                         self.txtuser.get(),

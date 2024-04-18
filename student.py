@@ -14,7 +14,7 @@ class Student:
 
         
         #================variables=================
-        self.var_dep=StringVar()
+        self.var_dept=StringVar()
         self.var_cousre=StringVar()
         self.var_year=StringVar()
         self.var_semester=StringVar()
@@ -85,13 +85,13 @@ class Student:
         current_course.place(x=5,y=5,width=720,height=115)
         
         #department
-        dep_label=Label(current_course,text="Department",font=("times new roman",13,"bold"),bg="white")
-        dep_label.grid(row=0,column=0,padx=10,sticky=W)
+        dept_label=Label(current_course,text="Department",font=("times new roman",13,"bold"),bg="white")
+        dept_label.grid(row=0,column=0,padx=10,sticky=W)
         
-        dep_combo=ttk.Combobox(current_course,textvariable=self.var_dep,font=("times new roman",13,"bold"),state="readonly",width=20)
-        dep_combo["values"]=("Select Department","Computer","CST","IT","DS","ENC")
-        dep_combo.current(0)
-        dep_combo.grid(row=0,column=1,padx=2,pady=10,sticky=W)
+        dept_combo=ttk.Combobox(current_course,textvariable=self.var_dept,font=("times new roman",13,"bold"),state="readonly",width=20)
+        dept_combo["values"]=("Select Department","Computer","CST","IT","DS","ENC")
+        dept_combo.current(0)
+        dept_combo.grid(row=0,column=1,padx=2,pady=10,sticky=W)
 
         #course
         course_label=Label(current_course,text="Course",font=("times new roman",13,"bold"),bg="white")
@@ -275,7 +275,7 @@ class Student:
         scroll_x=ttk.Scrollbar(table_student,orient=HORIZONTAL)
         scroll_y=ttk.Scrollbar(table_student,orient=VERTICAL)
 
-        self.student_table=ttk.Treeview(table_student,column=("id","course","year","sem","dep","div","roll","gender","dob","email","address","phone","teacher","photo","name"),xscrollcommand=scroll_x.set,yscrollcommand=scroll_y.set)
+        self.student_table=ttk.Treeview(table_student,column=("id","course","year","sem","dept","div","roll","gender","dob","email","address","phone","teacher","photo","name"),xscrollcommand=scroll_x.set,yscrollcommand=scroll_y.set)
 
         scroll_x.pack(side=BOTTOM,fill=X)
         scroll_y.pack(side=RIGHT,fill=Y)
@@ -286,7 +286,7 @@ class Student:
         self.student_table.heading("course",text="Course")
         self.student_table.heading("year",text="Year")
         self.student_table.heading("sem",text="Semester")
-        self.student_table.heading("dep",text="Department")
+        self.student_table.heading("dept",text="Department")
         self.student_table.heading("div",text="Divison")
         self.student_table.heading("roll",text="Roll No.")
         self.student_table.heading("gender",text="Gender")
@@ -303,7 +303,7 @@ class Student:
         self.student_table.column("course",width=100)
         self.student_table.column("year",width=100)
         self.student_table.column("sem",width=100)
-        self.student_table.column("dep",width=100)
+        self.student_table.column("dept",width=100)
         self.student_table.column("div",width=100)
         self.student_table.column("roll",width=100)
         self.student_table.column("gender",width=100)
@@ -320,7 +320,7 @@ class Student:
         self.fetch_data()
     #=======================function declaration=======================
     def add_data(self):
-        if self.var_dep.get()=="Select Department" or self.var_std_name.get()=="" or self.var_std_id.get()=="":
+        if self.var_dept.get()=="Select Department" or self.var_std_name.get()=="" or self.var_std_id.get()=="":
             messagebox.showerror("Error","All feilds are required",parent=self.root)
         else:
             try:
@@ -331,7 +331,7 @@ class Student:
                                                                                                             self.var_cousre.get(),
                                                                                                             self.var_year.get(),
                                                                                                             self.var_semester.get(),
-                                                                                                            self.var_dep.get(),
+                                                                                                            self.var_dept.get(),
                                                                                                             self.var_div.get(),
                                                                                                             self.var_roll.get(),
                                                                                                             self.var_gender.get(),
@@ -372,7 +372,7 @@ class Student:
         self.var_cousre.set(data[1]),
         self.var_year.set(data[2]),   
         self.var_semester.set(data[3]),
-        self.var_dep.set(data[4]),
+        self.var_dept.set(data[4]),
         self.var_div.set(data[5]),
         self.var_roll.set(data[6]),
         self.var_gender.set(data[7]),   
@@ -386,7 +386,7 @@ class Student:
     
     #update function
     def update_data(self):   
-        if self.var_dep.get()=="Select Department" or self.var_std_name.get()=="" or self.var_std_id.get()=="":
+        if self.var_dept.get()=="Select Department" or self.var_std_name.get()=="" or self.var_std_id.get()=="":
             messagebox.showerror("Error","All feilds are required",parent=self.root)
         else:
             try:
@@ -394,11 +394,11 @@ class Student:
                 if upadate>0:
                     conn=mysql.connector.connect(host="localhost",username="root",password="Ram1234*",database="face_recognizer")     
                     my_cursor=conn.cursor()
-                    my_cursor.execute("update student_data set cousre=%s,Year=%s,Semester=%s,Dept=%s,Division=%s,Roll=%s,Gender=%s,Dob=%s,Email=%s,Address=%s,Phone=%s,Teacher=%s,PhotoSample=%s,Name=%s where Student_id=%s",(
+                    my_cursor.execute("update student_data set cousre=%s,Year=%s,Semester=%s,dept=%s,Division=%s,Roll=%s,Gender=%s,Dob=%s,Email=%s,Address=%s,Phone=%s,Teacher=%s,PhotoSample=%s,Name=%s where Student_id=%s",(
                                                                                                                                                                          self.var_cousre.get(),
                                                                                                                                                                          self.var_year.get(),
                                                                                                                                                                          self.var_semester.get(),
-                                                                                                                                                                         self.var_dep.get(),
+                                                                                                                                                                         self.var_dept.get(),
                                                                                                                                                                          self.var_div.get(),
                                                                                                                                                                          self.var_roll.get(),
                                                                                                                                                                          self.var_gender.get(),
@@ -447,7 +447,7 @@ class Student:
                 messagebox.showerror("Error",f"Due To:{str(es)}",parent=self.root)
     #reset function
     def reset_data(self):    
-        self.var_dep.set("Select Department")
+        self.var_dept.set("Select Department")
         self.var_cousre.set("Select course")
         self.var_year.set("Select year")
         self.var_semester.set("Select semester")
@@ -466,7 +466,7 @@ class Student:
 
     #================== Generate data set or take photo sample =================  
     def generate_dataset(self):
-         if self.var_dep.get()=="Select Department" or self.var_std_name.get()=="" or self.var_std_id.get()=="":
+         if self.var_dept.get()=="Select Department" or self.var_std_name.get()=="" or self.var_std_id.get()=="":
             messagebox.showerror("Error","All feilds are required",parent=self.root)
          else:
             try:    
@@ -477,7 +477,7 @@ class Student:
                 id=0
                 for x in myresult:
                     id+=1
-                my_cursor.execute("update student_data set cousre=%s,Year=%s,Semester=%s,Dept=%s,Division=%s,Roll=%s,Gender=%s,Dob=%s,Email=%s,Address=%s,Phone=%s,Teacher=%s,PhotoSample=%s,Name=%s where Student_id=%s",(
+                my_cursor.execute("update student_data set cousre=%s,Year=%s,Semester=%s,dept=%s,Division=%s,Roll=%s,Gender=%s,Dob=%s,Email=%s,Address=%s,Phone=%s,Teacher=%s,PhotoSample=%s,Name=%s where Student_id=%s",(
                                                                                                                                                                          self.var_cousre.get(),
                                                                                                                                                                          self.var_year.get(),
                                                                                                                                                                          self.var_semester.get(),
@@ -529,7 +529,7 @@ class Student:
                     if cv2.waitKey(1)==13 or int(img_id)==100:
                         break
                 cap.release()
-                cv2.destroyALLWINDOW()   
+                cv2.destroyAllWindows()   
 
                 messagebox.showinfo("Result","Generating Datasets completed !")
             except Exception as es:

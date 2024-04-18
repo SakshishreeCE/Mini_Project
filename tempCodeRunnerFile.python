@@ -1,4 +1,3 @@
 import cv2
 
-# Get OpenCV version
 print("OpenCV version:", cv2.__version__)

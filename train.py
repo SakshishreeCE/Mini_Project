@@ -17,24 +17,24 @@ class Train:
         title_lbl=Label(self.root,text="TRAIN DATA SET",font=("times new roman",35,"bold"),fg="white",bg="green")
         title_lbl.place(x=0,y=0,width=1530,height=45)
 
-        img_top=Image.open(r"imageskafile/7new.JPG")
-        img_top=img_top.resize((1530,325),resample=Image.BILINEAR)
+        img_top=Image.open(r"imageskafile/train1.JPG")
+        img_top=img_top.resize((1600,900),resample=Image.BILINEAR)
         self.photoimage_top=ImageTk.PhotoImage(img_top)
 
         f_lbl=Label(self.root,image=self.photoimage_top)
-        f_lbl.place(x=0,y=55,width=1530,height=325)
+        f_lbl.place(x=0,y=45,width=1530,height=900)
 
 
-        b1 = Button(self.root,text="TRAIN ME",command=self.train_classifier,cursor="hand2",font=("times new roman",20,"bold"),bg="red",fg="black")
+        b1 = Button(self.root,text="TRAIN ME",command=self.train_classifier,cursor="hand2",font=("times new roman",20,"bold"),bg="blue",fg="black")
         b1.place(x=0,y=380,width=1530,height=60)
 
 
-        img_bottom=Image.open(r"imageskafile/bg.JPG")
-        img_bottom=img_bottom.resize((1530,325),resample=Image.BILINEAR)
-        self.photoimage_bottom=ImageTk.PhotoImage(img_bottom)
+        # img_bottom=Image.open(r"imageskafile/train2.JPG")
+        # img_bottom=img_bottom.resize((1530,325),resample=Image.BILINEAR)
+        # self.photoimage_bottom=ImageTk.PhotoImage(img_bottom)
 
-        f_lbl=Label(self.root,image=self.photoimage_bottom)
-        f_lbl.place(x=0,y=440,width=1530,height=325)
+        # f_lbl=Label(self.root,image=self.photoimage_bottom)
+        # f_lbl.place(x=0,y=440,width=1530,height=325)
 
 
     def train_classifier(self):
@@ -52,7 +52,7 @@ class Train:
             faces.append(imageNp)
             ids.append(id)
             cv2.imshow("Trainng",imageNp)
-            cv2.waitKey(1)==13
+            cv2.waitKey(1)==5
         ids=np.array(ids)
         
         # =============== Train the classifier And save =====================
